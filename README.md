@@ -15,11 +15,11 @@ C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-g
 C:\RetroBat\emulationstation\.emulationstation\scripts\system-selected\pixelcade-system-selected.exe
 C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-quit.exe
 
-If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5, Pixelcade will update scrolling through games and consoles in EmulationStation and when launching a game.
+If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
 ## Customizing
 
-After launch, a configuration file called pixelcade-settings.ini will be written to c:\users\<your windows username>\RetroBatPixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
+After the first game launch, a configuration file called pixelcade-settings.ini will be created in c:\users\<your windows username>\RetroBatPixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
 
 ; Pixelcade for RetroBat Config File
 [PIXELCADE SETTINGS]
