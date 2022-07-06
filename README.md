@@ -15,7 +15,7 @@ C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-g
 C:\RetroBat\emulationstation\.emulationstation\scripts\system-selected\pixelcade-system-selected.exe
 C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-quit.exe
 
-If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
+If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5 or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
 ## Customizing
 
