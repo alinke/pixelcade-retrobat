@@ -21,6 +21,8 @@ If you are on RetroBat V4, Pixelcade will update when you launch a game. For Ret
 
 After the first game launch, a configuration file called pixelcade-settings.ini will be created in c:\users\<your windows username>\RetroBatPixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
 
+You can further customize the modifying the source scripts which are written in Auto Hot Key and then using the Pixelcade API http://pixelcade.org/api
+
 ; Pixelcade for RetroBat Config File
 
 [PIXELCADE SETTINGS]
