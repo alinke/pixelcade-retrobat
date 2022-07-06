@@ -72,6 +72,7 @@ EXIT_MESSAGE=Thanks for Playing
 	), %PixelcadeSettingsPath%
 }	
 
+
 ;Get Arguments as an array
 if 0 > 0
 {
@@ -96,14 +97,26 @@ length:=args.length()
 ; c:\retroat\roms\atari2600\3D
 ; so get the string before the last backslash
 
-if (length > 2) {  ; do we have enough args
+if (length > 1) {  ; do we have enough args, need at least 2
 	ConsoleFullString:=args[1]
 	StringReplace, ConsoleFullStringMod, ConsoleFullString, /, \, All ; had to add this because we're getting c:/retrobat/roms/ vs. c:\retrobat\roms
 	StringSplit, pathArray, ConsoleFullStringMod, \
 	i2 := pathArray0 - 1
 	console := pathArray%i2% ;second to last in the path
-	game := args[length-1] ; rom name is the second to last in the args array but we need to strip out event code from here
+	
+	if (length = 3) {
+		game := args[length-1] ; then we have RetroBatV4 and it's MAME, rom name is the last arg in the array
+	}
+	else {
+		game := args[length] ; rom name is the second to last in the args array but we need to strip out event code from here
+	}
+	
 	gameTitle := args[length] ; game title is the last item in the args array
+	; let's remove the (USA), (EUROPE) ,etc. from the title string if it's there
+	StringGetPos, pos, gameTitle, (
+	if (pos >= 0) {
+		gameTitle := SubStr(gameTitle, 1, pos)
+	}
 	
 	; TO DO add high scores 
 	
