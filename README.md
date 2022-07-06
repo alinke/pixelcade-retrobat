@@ -1,5 +1,5 @@
-# pixelcade-retrobat
-Source code and scripts for the Pixelcade Arcade Marquee integration with the RetroBat Arcade Front End.
+# Pixelcade Marquee Integration with RetroBat
+Source code and scripts for the Pixelcade Arcade Marquee integration with the RetroBat Arcade Front End. Pixelcade is a line of LED and LCD based active marquees for arcade machines http://pixelcade.org. RetroBat is a Windows based arcade front end https://www.retrobat.ovh/
 
 ## Installation Instructions
 
