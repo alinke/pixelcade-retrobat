@@ -1,7 +1,7 @@
 # pixelcade-retrobat
 Source code and scripts for the Pixelcade Arcade Marquee integration with the RetroBat Arcade Front End.
 
-##Installation Instructions
+## Installation Instructions
 
 1. Install the Pixelcade Software for Windows on your Windows arcade machine https://pixelcade.org/download-pc/
 
@@ -17,7 +17,7 @@ C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-q
 
 If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5, Pixelcade will update scrolling through games and consoles in EmulationStation and when launching a game.
 
-##Customizing
+## Customizing
 
 After launch, a configuration file called pixelcade-settings.ini will be written to c:\users\<your windows username>\RetroBatPixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
 
