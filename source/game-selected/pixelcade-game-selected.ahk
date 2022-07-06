@@ -20,8 +20,7 @@ if 0 > 0
 	args:=[]
 	Loop, %argc% {
 		args.Insert(%A_Index%)
-		;MsgBox, % args[A_Index] ; print the command line params
-		}
+	}
 }
 else
 {
@@ -35,18 +34,15 @@ length:=args.length()
 ; c:\retroat\roms\atari2600\3D
 ; so get the string before the last backslash
 
-
-
-if (length > 2) {  ; do we have enough args, need at least 3
+if (length > 2) {  ; do we have at least 3 args, this one should only have exactly 3
 	GameFullPath:=args[2]
 	StringReplace, GameFullPathMod, GameFullPath, /, \, All ; had to add this because we're getting c:/retrobat/roms/ vs. c:\retrobat\roms
 	SplitPath, GameFullPathMod, , , , game, 
 	
-	;console is easy
-	console := args[1]
+	console := args[1] ;console is the first arg
 	
-	; now let's get the current game on pixelcade and if it's the same, let's not make the duplicate REST call, ES will actually call it twice if we didn't do this and that would interrupt up the Pixelcade Q
-	;currentgame retursn this mame%88games&event=GameStart or mame%pacman
+	; now let's get the current game on pixelcade and if it's the same, let's not make the duplicate REST call, ES will actually call it twice after a game-select so if we didn't do this, that would interrupt up the Pixelcade Q and also cause a flicker
+	;currentgame returns: mame%pacman so we need to parse and only get pacman
 	url := "http://127.0.0.1:8080/currentgame"
 	PREVIOUSGAMESELECTED := getRESTCallValue(url)
 	StringSplit, currentGameArray, PREVIOUSGAMESELECTED,`% ;escaping the % delimeter
@@ -57,9 +53,8 @@ if (length > 2) {  ; do we have enough args, need at least 3
 		sendRESTCall(url)
 	}	
 	else {
-		ExitApp ;it's the same game already so exit out and don't make any calls
+		ExitApp ;it's the same game already so exit out and don't make any duplicate calls which would cause Pixelcade to flicker
 	}
-	
 }
 else 
 {
@@ -71,7 +66,6 @@ sendRESTCall(url) {
 
 	try {
 			oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-			;msgbox, %url%
 			oWhr.Open("GET", url, false)
 			oWhr.Send()
 			
@@ -84,7 +78,6 @@ getRESTCallValue(url) {
 
 	try {
 			oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-			;msgbox, %url%
 			oWhr.Open("GET", url, false)
 			oWhr.Send()
 			Return oWhr.ResponseText

@@ -23,12 +23,13 @@ Global LoggingINI
  ; 0 = off and 1 = on
 LoggingINI := 0 
 Game_Start_TextINI := 0
-DISPLAYHIGHSCORES=yes
-NUMBERHIGHSCORES=3  ;number of high scores to scroll, choose 1 for example to only show the top score
-CYCLEMODE=yes ;cycle mode means we continually cycle between the game marquee and scrolling high scores. If set to no, then high scores will scroll only once on game launch and then display the game marquee
-NUMBER_MARQUEE_LOOPS=1 ;for cycle mode, the number of times the animated marquee will loop before scrolling the high score text, this has no effect if it's a still image game marquee
-HI2TXT_JAR=${INSTALLPATH}pixelcade/hi2txt/hi2txt.jar ;hi2txt.jar AND hi2txt.zip must be in this folder, the Pixelcade installer puts them here by default
-HI2TXT_DATA=${INSTALLPATH}pixelcade/hi2txt/hi2txt.zip
+CycleModeINI := 0
+NowPlayingTextINI := Now Playing
+NumberMarqueeLoopsINI := 1
+; Note high scores are implemeneted at this time
+;HighScoresINI := 0
+;HI2TXT_JAR=${INSTALLPATH}pixelcade/hi2txt/hi2txt.jar ;hi2txt.jar AND hi2txt.zip must be in this folder, the Pixelcade installer puts them here by default
+;HI2TXT_DATA=${INSTALLPATH}pixelcade/hi2txt/hi2txt.zip
 ;*************************************************
 
 EnvGet, hdrive, Homedrive
@@ -40,6 +41,35 @@ PixelcadeSettingsPath := PixelcadeRetroBatFolder . "\pixelcade-settings.ini"
 if FileExist(PixelcadeSettingsPath) {
 	IniRead, LoggingINI, %PixelcadeSettingsPath%, PIXELCADE SETTINGS, LOGGING
 	IniRead, Game_Start_TextINI, %PixelcadeSettingsPath%, PIXELCADE SETTINGS, GAME_START_TEXT
+	IniRead, CycleModeINI, %PixelcadeSettingsPath%, PIXELCADE SETTINGS, CYCLEMODE
+	IniRead, NowPlayingTextINI, %PixelcadeSettingsPath%, PIXELCADE SETTINGS, NOW_PLAYING_TEXT
+	IniRead, NumberMarqueeLoopsINI, %PixelcadeSettingsPath%, PIXELCADE SETTINGS, NUMBER_MARQUEE_LOOPS
+}
+else { ;let's create it
+	FileAppend,
+	(
+; Pixelcade for RetroBat Config File
+[PIXELCADE SETTINGS]
+
+; if set to 1, pixelcade-log.log will be written to c:\users\your username\RetroBatPixelcade\pixelcade-log.log. Note that only Game Start events will write to this log file. Game and console scrolling (game-selected and system-selected) will not write to this log file.
+; this log file will be over-written on each game start call and will not append
+LOGGING=0
+
+; if set to 1, "Now Playing < Game Title >" will scroll before the game marquee is displayed upon a game launch. If set to 0, just the game marquee will be displayed with no scrolling text
+GAME_START_TEXT=1
+
+;cycle mode means continually cycle between the game marquee and now playing text. If set to no, then the now playing text will only display on game launch and then display the game marquee. Cycle mode is not applicable if GAME_START_TEXT=0
+CYCLEMODE=0
+
+; If GAME_START_TEXT=1, you can change the "Now Playing" default scrolling text to something else
+NOW_PLAYING_TEXT=Now Playing
+
+;if in cycle mode, the number of times an animated marquee will loop before cycling back to scrolling text. This has no effect if it's a still image / non-animated game marquee
+NUMBER_MARQUEE_LOOPS=1 
+
+;Scroll this text when EmulationStation quits, you can customize to whatever you'd like to say here
+EXIT_MESSAGE=Thanks for Playing
+	), %PixelcadeSettingsPath%
 }	
 
 ;Get Arguments as an array
@@ -74,10 +104,16 @@ if (length > 2) {  ; do we have enough args
 	console := pathArray%i2% ;second to last in the path
 	game := args[length-1] ; rom name is the second to last in the args array but we need to strip out event code from here
 	gameTitle := args[length] ; game title is the last item in the args array
-	;RetroBatDir := pathArray[1] ;decided not to use this and use home folders instead
+	
+	; TO DO add high scores 
 	
 	if Game_Start_TextINI {
-		 url := "http://127.0.0.1:8080/text?t=Now Playing" . gameTitle . "&loop=1&game=" . game . "&system=" console . "&event=GameStart"
+		 if  CycleModeINI {
+			url := "http://127.0.0.1:8080/text?t=" . NowPlayingTextINI . " " . gameTitle . "&loop=" . NumberMarqueeLoopsINI . "&game=" . game . "&system=" console . "&cycle" . "&event=GameStart"
+		 }
+		 else {
+			 url := "http://127.0.0.1:8080/text?t=" . NowPlayingTextINI . " " . gameTitle . "&loop=" . NumberMarqueeLoopsINI . "&game=" . game . "&system=" console . "&event=GameStart"
+		 }
 		 sendRESTCall(url)
 		 url := "http://127.0.0.1:8080/arcade/stream/" . console . "/" . game . "?loop=99999&event=GameStart"
 		 sendRESTCall(url)
@@ -86,7 +122,6 @@ if (length > 2) {  ; do we have enough args
 		url := "http://127.0.0.1:8080/arcade/stream/" . console . "/" . game . "?event=GameStart"
 		sendRESTCall(url)
 	}
-	
 }
 else 
 {
@@ -103,7 +138,6 @@ WriteLog(msg) {
 sendRESTCall(url) {
 	try {
 			oWhr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-			;msgbox, %url%
 			oWhr.Open("GET", url, false)
 			oWhr.Send()
 			if LoggingINI
