@@ -22,7 +22,7 @@ Global LoggingINI
  ;change these in c:\users\username\PixelcadeRetroBat\pixelcade-settings.ini 
  ; 0 = off and 1 = on
 LoggingINI := 0 
-Game_Start_TextINI := 0
+Game_Start_TextINI := 1
 CycleModeINI := 0
 NowPlayingTextINI := Now Playing
 NumberMarqueeLoopsINI := 1
