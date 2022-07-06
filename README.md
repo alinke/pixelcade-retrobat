@@ -10,10 +10,10 @@ https://github.com/alinke/pixelcade-retrobat/tree/main/scripts
 
 and copy to and ensure to keep this exact folder structure
 
-C:\RetroBat\emulationstation\.emulationstation\scripts\game-start\pixelcade-game-start.exe
-C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-game-selected.exe
-C:\RetroBat\emulationstation\.emulationstation\scripts\system-selected\pixelcade-system-selected.exe
-C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-quit.exe
+* C:\RetroBat\emulationstation\.emulationstation\scripts\game-start\pixelcade-game-start.exe
+* C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-game-selected.exe
+* C:\RetroBat\emulationstation\.emulationstation\scripts\system-selected\pixelcade-system-selected.exe
+* C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-quit.exe
 
 If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5 or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
