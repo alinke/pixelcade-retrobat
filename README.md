@@ -24,7 +24,8 @@ The Pixelcade for RetroBat scripts will automatically be installed to these fold
 
 ![Pixelcade for RetroBat Install 4](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer5-e1657221045815.jpg)
 
-For RetroBat V4.x, Pixelcade will update when you launch a game. For RetroBat V5.x or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
+* For RetroBat V4.x, Pixelcade will update when you launch a game.
+* For RetroBat V5.x or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
 ## Customizing
 
