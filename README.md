@@ -5,7 +5,7 @@ Source code and scripts for the Pixelcade Arcade Marquee integration with the Re
 
 Install the Pixelcade Software for Windows on your Windows arcade machine https://pixelcade.org/download-pc/
 
-Towards the end of the installation, the Arcade Front End Wizard will appear, choose RetroBat
+Towards the end of the installation, the Arcade Front End Wizard will appear, choose RetroBat:
 
 ![Pixelcade for RetroBat Install 1](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer1-e1657220929273.jpg)
 
