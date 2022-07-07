@@ -3,19 +3,28 @@ Source code and scripts for the Pixelcade Arcade Marquee integration with the Re
 
 ## Installation Instructions
 
-1. Install the Pixelcade Software for Windows on your Windows arcade machine https://pixelcade.org/download-pc/
+Install the Pixelcade Software for Windows on your Windows arcade machine https://pixelcade.org/download-pc/
 
-2. Grab the Pixelcade for RetroBat .EXEs from here (this step will eventually be automated in #1)
-https://github.com/alinke/pixelcade-retrobat/tree/main/scripts
+Towards the end of the installation, the Arcade Front End Wizard will appear, choose RetroBat
 
-and copy to and ensure to keep this exact folder structure
+![Pixelcade for RetroBat Install 1](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer1-e1657220929273.jpg)
+
+The Pixelcade installer will detect your RetroBat installation path, confirm or correct:
+
+![Pixelcade for RetroBat Install 2](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer2-e1657220959970.jpg)
+
+![Pixelcade for RetroBat Install 3](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer4-e1657221024111.jpg)
+
+The Pixelcade for RetroBat scripts will automatically be installed to these folders:
 
 * C:\RetroBat\emulationstation\.emulationstation\scripts\game-start\pixelcade-game-start.exe
 * C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-game-selected.exe
 * C:\RetroBat\emulationstation\.emulationstation\scripts\system-selected\pixelcade-system-selected.exe
 * C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-quit.exe
 
-If you are on RetroBat V4, Pixelcade will update when you launch a game. For RetroBat V5 or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
+![Pixelcade for RetroBat Install 4](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer5-e1657221045815.jpg)
+
+For RetroBat V4.x, Pixelcade will update when you launch a game. For RetroBat V5.x or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
 ## Customizing
 
