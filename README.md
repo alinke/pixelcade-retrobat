@@ -15,7 +15,7 @@ The Pixelcade installer will detect your RetroBat installation path, confirm or 
 
 ![Pixelcade for RetroBat Install 3](https://creativeartsandtechnology.com/wp-content/uploads/2022/07/installer4-e1657221024111.jpg)
 
-The Pixelcade for RetroBat scripts will automatically be installed to these folders:
+The Pixelcade for RetroBat scripts will automatically be copied to these folders. If you ever remove Pixelcade, then just delete these files.
 
 * C:\RetroBat\emulationstation\.emulationstation\scripts\game-start\pixelcade-game-start.exe
 * C:\RetroBat\emulationstation\.emulationstation\scripts\game-selected\pixelcade-game-selected.exe
@@ -26,6 +26,8 @@ The Pixelcade for RetroBat scripts will automatically be installed to these fold
 
 * For RetroBat V4.x, Pixelcade will update when you launch a game.
 * For RetroBat V5.x or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
+
+Ensure that the Pixelcade Listener is running before launching RetroBat and note that if the Pixelcade Listener is not running, EmulationStation will be slower as the Pixelcade Scripts will be making API calls to the Pixelcade Listener which will time out and slow down performance. 
 
 ## Customizing
 
