@@ -34,7 +34,7 @@ NumberMarqueeLoopsINI := 1
 
 EnvGet, hdrive, Homedrive
 EnvGet, hpath, Homepath
-PixelcadeRetroBatFolder := hdrive hpath "\RetroBatPixelcade"
+PixelcadeRetroBatFolder := hdrive hpath "\pixelcade"
 FileCreateDir, %PixelcadeRetroBatFolder% ;only creates if it doesn't already exist in c:\users\username\RetroBatPixelcade
 PixelcadeLogPath := PixelcadeRetroBatFolder . "\pixelcade-log.log"
 PixelcadeSettingsPath := PixelcadeRetroBatFolder . "\pixelcade-settings.ini"
@@ -48,7 +48,7 @@ if FileExist(PixelcadeSettingsPath) {
 else { ;let's create it
 	FileAppend,
 	(
-; Pixelcade for RetroBat Config File
+; Pixelcade Config File
 [PIXELCADE SETTINGS]
 
 ; if set to 1, pixelcade-log.log will be written to c:\users\your username\RetroBatPixelcade\pixelcade-log.log. Note that only Game Start events will write to this log file. Game and console scrolling (game-selected and system-selected) will not write to this log file.

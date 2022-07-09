@@ -7,7 +7,7 @@ ExitMessageINI := Thanks for Playing
 
 EnvGet, hdrive, Homedrive
 EnvGet, hpath, Homepath
-PixelcadeRetroBatFolder := hdrive hpath "\RetroBatPixelcade"
+PixelcadeRetroBatFolder := hdrive hpath "\pixelcade"
 PixelcadeSettingsPath := PixelcadeRetroBatFolder . "\pixelcade-settings.ini"
 
 if FileExist(PixelcadeSettingsPath) {
