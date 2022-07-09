@@ -27,19 +27,19 @@ The Pixelcade for RetroBat scripts will automatically be copied to these folders
 * For RetroBat V4.x, Pixelcade will update when you launch a game.
 * For RetroBat V5.x or above, Pixelcade will update when scrolling through games and consoles in EmulationStation and when launching a game.
 
-Ensure that the Pixelcade Listener is running before launching RetroBat and note that if the Pixelcade Listener is not running, EmulationStation will be slower as the Pixelcade Scripts will be making API calls to the Pixelcade Listener which will time out and slow down performance. 
+Ensure that the Pixelcade Listener is running before launching RetroBat and note that if the Pixelcade Listener is not running, EmulationStation will be slower as the Pixelcade Scripts will be making API calls to the Pixelcade Listener which will time out and slow down performance.
 
 ## Customizing
 
-After the first game launch, a configuration file called pixelcade-settings.ini will be created in c:\users\<your windows username>\RetroBatPixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
+After the first game launch, a configuration file called pixelcade-settings.ini will be created in c:\users\<your windows username>\pixelcade\pixelcade-settings.ini. You can change the settings as noted below to customize Pixelcade's behavior.
 
 You can further customize by modifying the source code of the scripts which are written in Auto Hot Key and then using the Pixelcade API http://pixelcade.org/api to add additional functionality
 
-; Pixelcade for RetroBat Config File
+; Pixelcade Config File
 
 [PIXELCADE SETTINGS]
 
-; if set to 1, pixelcade-log.log will be written to c:\users\your username\RetroBatPixelcade\pixelcade-log.log. Note that only Game Start events will write to this log file. Game and console scrolling (game-selected and system-selected) will not write to this log file.
+; if set to 1, pixelcade-log.log will be written to c:\users\your username\pixelcade\pixelcade-log.log. Note that only Game Start events will write to this log file. Game and console scrolling (game-selected and system-selected) will not write to this log file.
 ; this log file will be over-written on each game start call and will not append
 
 LOGGING=0
